@@ -100,3 +100,18 @@ public static XlCall.XlReturn AtomXlCoerce(out object result, object input, XlTy
             throw new NotImplementedException("default");
     }
 }
+
+ public enum XlType : int
+    {
+        // See https://github.com/Excel-DNA/ExcelDna/blob/master/Distribution/Samples/Conversions.dna
+
+        XlTypeNumber    = 0x0001,
+        XlTypeString    = 0x0002,
+        XlTypeBoolean   = 0x0004,
+        XlTypeReference = 0x0008,
+        XlTypeError     = 0x0010,
+        XlTypeArray     = 0x0040,
+        XlTypeMissing   = 0x0080,
+        XlTypeEmpty     = 0x0100,
+        XlTypeInt       = 0x0800,    // int16 in XlOper, int32 in XlOper12, never passed into UDF
+    }
